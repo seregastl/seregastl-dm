@@ -2,6 +2,7 @@ library(dplyr)
 require(dplyr)
 
 all_data <- read.csv('C:/Users/sergey.sergeev/Documents/!/cosmos-2015-05.csv', sep=";", header=TRUE)
+#all_data <- mutate(all_data, book_day = as.Date(gsub("\\s.*", "", Дата.бронирования)), "%m%d%Y")
 all_data <- mutate(all_data, book_day = gsub("\\s.*", "", Дата.бронирования))
 
 all_data <- filter(all_data, !grepl("Отмена", Статус.брони))
